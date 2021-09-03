@@ -10,56 +10,125 @@ html {
 
 #App {
   max-width: 1200px;
-  margin: 2rem auto;
-  background-color: powderblue;
+  margin: 3rem auto;
 }
 
-header .toggle_B {
-  width: 70px;
-  height: 30px;
-  background: #cccccc;
-  border-radius: 15px;
-  margin-bottom: 1rem;
+header .searchInput {
+  width: 100%;
+  font-size: 2rem;
+  font-weight: bold;
 }
 
-header .toggleBtn {
+main {
+  min-width: 400px;
+}
+
+main .searchResult {
+  width: 100%;
+  display: grid;
+  grid-template-columns: repeat(4, minmax(250px, 1fr));
+  grid-gap: 10px;
+}
+
+main .searchResult img {
+  width: 200px;
+  height: 200px;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.random_B {
+  text-align: center;
+  padding: 1rem;
+}
+
+.randomBtn {
+  padding: 1rem 0;
+  cursor: pointer;
+  padding: 0.8rem;
+  border-radius: 10px;
   border: none;
-  width: 30px;
-  height: 30px;
-  background: #ffffff;
-  border-radius: 15px;
-  position: relative;
-  left: 0;
-  transition: all 0.5s ease;
+  background-color: antiquewhite;
+  box-shadow: 0px 2px 4px #9c9c9c;
+  color: #3a3a3a;
+  transition: 0.2s;
+  font-weight: 600;
+  font-size: 1rem;
+}
+
+.toggleBtn {
+  cursor: pointer;
+  padding: 0.8rem;
+  border-radius: 10px;
+  border: none;
+  background-color: transparent;
+  box-shadow: 0px 2px 4px #9c9c9c;
+  position: fixed;
+  display: inline-block;
+  transition: 0.2s;
+  right: 78px;
+  bottom: 78px;
+  font-weight: 600;
+  font-size: 0.8rem;
 }
 
 /* darkMode 설정 */
-@media (prefers-color-scheme: dark) {
-  body {
-    color: #ffffff;
-    background: #000000;
-  }
-  header .toggleBtn {
-    background: #ffffff;
-  }
+.dark-mode header .toggleBtn {
+  appearance: none;
+  cursor: pointer;
+  padding: 0.8rem;
+  border-radius: 10px;
+  border: none;
+  background-color: #6b6b6b;
+  color: #fff;
+  box-shadow: 0px 2px 4px #9c9c9c;
+  position: fixed;
+  display: inline-block;
+  transition: 0.2s;
+  right: 78px;
+  bottom: 78px;
+  font-weight: 600;
+  font-size: 0.8rem;
 }
+
+.dark-mode header .toggleBtn:hover {
+  background-color: #8d8d8d;
+  color: #dfdfdf;
+  transition: 0.2s;
+}
+
 /* ligthMode 설정 */
-@media (prefers-color-scheme: light) {
-  body {
-    color: #000000;
-    background-color: #ffffff;
-  }
-  header .toggleBtn {
-    background: #000000;
-  }
+header .toggleBtn {
+  appearance: none;
+  cursor: pointer;
+  padding: 0.8rem;
+  border-radius: 10px;
+  border: none;
+  background-color: transparent;
+  box-shadow: 0px 2px 4px #9c9c9c;
+  position: fixed;
+  display: inline-block;
+  transition: 0.2s;
+  right: 78px;
+  bottom: 78px;
+  font-weight: 600;
+  font-size: 0.8rem;
+}
+.toggleBtn:hover {
+  background-color: #4b4b4b;
+  color: #dfdfdf;
+  transition: 0.2s;
 }
 /* light, black 모드 설정을 위한 토글 클래스 */
-.light_mode {
-  color: #000000;
+
+.light-mode {
+  color: #3a3a3a;
   background: #ffffff;
 }
 
-.dark_mode {
+.dark-mode {
   color: #ffffff;
-  background: #000000;
+  background: #3a3a3a;
 }

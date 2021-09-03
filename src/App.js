@@ -73,4 +73,10 @@ class App {
       },
     });
   }
+
+  setState(nextData) {
+    this.data = nextData;
+    this.searchResult.setState(nextData);
+    // LocalStorage에 데이터 저장
+  }
 }

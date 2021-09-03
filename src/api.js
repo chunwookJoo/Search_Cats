@@ -20,10 +20,11 @@ const api = {
       console.log(err);
     }
   },
-  // 고양이 랜덤 검색 api
+  고양이 랜덤 검색 api
   fetchRandomCats: async () => {
     try {
       const data = await fetch(`${API_ENDPOINT}/api/cats/random50`);
+      console.log(data);
       return data.json();
     } catch (err) {
       console.log(err);
