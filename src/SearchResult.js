@@ -1,5 +1,4 @@
 class SearchResult {
-  $searchResult = null;
   loading = false;
   data = [];
   onClick = null;
@@ -10,7 +9,10 @@ class SearchResult {
     this.$searchResult.className = "searchResult";
 
     this.$searchResult.addEventListener("click", (e) => {
-      console.log(e);
+      if (e.target.nodeName === "IMG") {
+        this.onClick(e.target.id);
+        console.log("click");
+      }
     });
 
     section.appendChild(this.$searchResult);
@@ -23,7 +25,6 @@ class SearchResult {
   }
 
   setState(nextData) {
-    console.log(nextData);
     this.data = nextData.data;
     this.loading = nextData.loading;
     this.render();
@@ -34,7 +35,7 @@ class SearchResult {
     if (this.loading) {
       this.$searchResult.innerHTML = `
           <div>
-            <img src="./src/img/loading.gif" alt="loading"></img>
+            <img id="loadingImg" src="./src/img/loading.gif" alt="loading"></img>
           </div>
         `;
     }

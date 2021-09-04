@@ -14,7 +14,7 @@ const api = {
   // 고양이 상세정보
   fetchCat: async (id) => {
     try {
-      const data = await fetch(`${API_ENDPOINT}/api/cat/${id}`);
+      const data = await fetch(`${API_ENDPOINT}/api/cats/${id}`);
       return data.json();
     } catch (err) {
       console.log(err);

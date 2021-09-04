@@ -17,6 +17,7 @@ header .searchInput {
   width: 100%;
   font-size: 2rem;
   font-weight: bold;
+  padding: 0.4rem;
 }
 
 main {
@@ -27,10 +28,18 @@ main .searchResult {
   width: 100%;
   display: grid;
   grid-template-columns: repeat(4, minmax(250px, 1fr));
-  grid-gap: 10px;
+  grid-gap: 1rem;
+  text-align: center;
 }
 
 main .searchResult img {
+  width: 240px;
+  height: 240px;
+  object-fit: cover;
+  cursor: pointer;
+}
+
+#loadingImg {
   width: 200px;
   height: 200px;
   position: absolute;
@@ -56,6 +65,73 @@ main .searchResult img {
   transition: 0.2s;
   font-weight: 600;
   font-size: 1rem;
+}
+
+/* 모달창 */
+.content-wrapper {
+  min-width: 768px;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  border-radius: 14px;
+  background-color: #ffffff;
+  color: #000000;
+  box-shadow: 0px 0px 10px #3a3a3a;
+  transition: 0.3s;
+  z-index: 5;
+}
+
+.content-wrapper .title {
+  padding: 1rem 1.5rem;
+  display: flex;
+  justify-content: space-between;
+}
+
+.content-wrapper .title span {
+  font-size: 1.2rem;
+  font-weight: bold;
+}
+
+.content-wrapper .title .close {
+  cursor: pointer;
+  outline: none;
+  border: none;
+  background-color: transparent;
+  transition: 0.3s;
+}
+
+.content-wrapper .title .close:hover {
+  transition: 0.3s;
+  transform: scale(1.2);
+}
+
+.content-wrapper img {
+  width: 100%;
+  height: 540px;
+}
+
+.content-wrapper .description {
+  padding: 1rem 1.5rem;
+}
+
+.content-wrapper .description p {
+  font-size: 1.2rem;
+  font-weight: bold;
+  margin-bottom: 8px;
+}
+
+/* 모달창 뒷 배경 */
+.overlay {
+  top: 0;
+  left: 0;
+  transition: 0.3s;
+  width: 100vw;
+  height: 100vh;
+  position: fixed;
+  background: rgba(0, 0, 0, 0.5);
+  backdrop-filter: blur(3px);
+  opacity: 1;
 }
 
 .toggleBtn {
