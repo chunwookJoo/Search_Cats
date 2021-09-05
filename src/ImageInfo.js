@@ -10,9 +10,17 @@ class ImageInfo {
     this.data = initialData;
     this.onClose = onClose;
 
+    // 모달 밖 클릭
     this.$imageInfo.addEventListener("click", (e) => {
-      console.log("모달 밖 클릭");
-      if (e.target.className === "imageInfo") {
+      console.log(e);
+      if (e.target.className === "overlay") {
+        this.onClose();
+      }
+    });
+
+    // ESC 클릭
+    document.addEventListener("keydown", (e) => {
+      if (this.$imageInfo.style.display === "block" && e.keyCode === 27) {
         this.onClose();
       }
     });
@@ -28,11 +36,18 @@ class ImageInfo {
   }
 
   render() {
-    if (!this.loading && this.data.visible) {
+    if (this.loading) {
+      this.$imageInfo.style.display = "block";
+      this.$imageInfo.innerHTML = `
+      <div class="overlay"></div>
+      <div>
+        <img id="loadingImg" src="./src/img/loading.gif" alt="loading"></img>
+      </div>
+    `;
+    } else if (!this.loading && this.data.visible) {
       this.$imageInfo.style.display = "block";
 
       const { name, url, temperament, origin } = this.data.data;
-
       this.$imageInfo.innerHTML = `
           <div class="overlay"></div>
           <div class="content-wrapper">
@@ -46,7 +61,10 @@ class ImageInfo {
               <p>성격: ${temperament}</p>
             </div>
           </div>`;
-      this.$imageInfo.style.display = "block";
+
+      document
+        .querySelector(".close")
+        .addEventListener("click", () => this.onClose());
     } else {
       this.$imageInfo.style.display = "none";
     }

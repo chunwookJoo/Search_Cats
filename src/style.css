@@ -42,7 +42,7 @@ main .searchResult img {
 #loadingImg {
   width: 200px;
   height: 200px;
-  position: absolute;
+  position: fixed;
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
@@ -70,7 +70,7 @@ main .searchResult img {
 /* 모달창 */
 .content-wrapper {
   min-width: 768px;
-  position: absolute;
+  position: fixed;
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
@@ -134,20 +134,14 @@ main .searchResult img {
   opacity: 1;
 }
 
-.toggleBtn {
-  cursor: pointer;
-  padding: 0.8rem;
-  border-radius: 10px;
-  border: none;
-  background-color: transparent;
-  box-shadow: 0px 2px 4px #9c9c9c;
-  position: fixed;
-  display: inline-block;
-  transition: 0.2s;
-  right: 78px;
-  bottom: 78px;
-  font-weight: 600;
-  font-size: 0.8rem;
+/* 검색결과 없음 */
+.no-search {
+  font-size: 2rem;
+  font-weight: bold;
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
 }
 
 /* darkMode 설정 */
@@ -182,7 +176,7 @@ header .toggleBtn {
   padding: 0.8rem;
   border-radius: 10px;
   border: none;
-  background-color: transparent;
+  background-color: antiquewhite;
   box-shadow: 0px 2px 4px #9c9c9c;
   position: fixed;
   display: inline-block;
@@ -192,6 +186,7 @@ header .toggleBtn {
   font-weight: 600;
   font-size: 0.8rem;
 }
+
 .toggleBtn:hover {
   background-color: #4b4b4b;
   color: #dfdfdf;

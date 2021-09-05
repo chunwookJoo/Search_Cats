@@ -11,7 +11,6 @@ class SearchResult {
     this.$searchResult.addEventListener("click", (e) => {
       if (e.target.nodeName === "IMG") {
         this.onClick(e.target.id);
-        console.log("click");
       }
     });
 
@@ -20,8 +19,6 @@ class SearchResult {
 
     this.data = initialData;
     this.onClick = onClick;
-
-    this.render();
   }
 
   setState(nextData) {
@@ -43,7 +40,7 @@ class SearchResult {
     // 검색 결과가 없을 때.
     if (!this.loading && !this.data.length) {
       this.$searchResult.innerHTML = `
-            <div>검색 결과가 없습니다.</div>
+            <div class="no-search">검색 결과가 없습니다. 😥</div>
         `;
     }
     // 로딩이 끝나고 검색 결과가 있을 때.

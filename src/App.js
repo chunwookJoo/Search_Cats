@@ -78,5 +78,8 @@ class App {
     this.data = nextData;
     this.searchResult.setState(nextData);
     // LocalStorage에 데이터 저장
+    if (this.data.data) {
+      localStorage.setItem("data", JSON.stringify(this.data.data));
+    }
   }
 }
